@@ -1,0 +1,132 @@
+<html>
+<head>
+<title>표 만들기 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<style type="TEXT/CSS">
+body, td { color: black; font-family: verdana, arial, helvetica, sans-serif; font-size: 9pt; }
+form { display : inline; }
+</style>
+<script language="JavaScript">
+<!--
+function ok_click()
+{
+	var t_table;
+	var form = document.apply;
+	var BgColor;
+	var CellPadding;
+	var CellSpacing;
+	var TdColor;
+	for (var k=0; k < form.bgcolor.length; k++)
+	{
+		if(form.bgcolor.options[k].selected == true) BgColor = form.bgcolor.options[k].value;
+	}
+	for (k=0; k < form.cellpadding.length; k++)
+	{
+		if(form.cellpadding.options[k].selected == true) CellPadding = form.cellpadding.options[k].value;
+	}
+	for (k=0; k < form.cellspacing.length; k++)
+	{
+		if(form.cellspacing.options[k].selected == true) CellSpacing = form.cellspacing.options[k].value;
+	}
+	for (k=0; k < form.tdcolor.length; k++)
+	{
+		if(form.tdcolor.options[k].selected == true) TdColor = form.tdcolor.options[k].value;
+	}
+	t_table = "<table cellpadding=" + CellPadding + " cellspacing=" + CellSpacing + " border=0 bgcolor=" + BgColor + " width=99% style=\"font-size=9pt; font-family:굴림 \">";
+	for (var i=0; i < form.tr.value; i++)
+	{
+		t_table += "<tr bgcolor= " + TdColor + " >";
+		for (var j=0; j < form.td.value; j++) t_table += "<td>&nbsp;</td>";
+		t_table += "</tr>";
+	}
+	t_table += "</table>";
+	window.returnValue = t_table;
+	window.close();
+}
+//-->
+</script>
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center">
+			<form method="post"  name="apply">
+			<table border="0" cellpadding="3" cellspacing="1" bgcolor="C0C0C0" width="305">
+				<tr>
+					<td bgcolor="#DDDDDD" align="center" width="41" height="20">행 수</td>
+					<td bgcolor="#FFFFFF" width="39" height="20" > <input type="text" name="tr" maxlength="2" size="2" value=3> </td>
+					<td bgcolor="#DDDDDD" align="center" width="38" height="20">열 수</td>
+					<td bgcolor="#FFFFFF" width="38" > <input type="text"  name="td" maxlength="2" size="2" value=3> </td>
+					<td bgcolor="#DDDDDD" width="25" ><p>선색 </p></td>
+					<td bgcolor="#FFFFFF" width="81" height="20" > <select name="bgcolor" >
+						<option value="gray" selected >Default</option>
+						<option value="Black" >Black</option>
+						<option value="White" >White</option>
+						<option value="Green" >Green</option>
+						<option value="Maroon" >Maroon</option>
+						<option value="Olive" >Olive</option>
+						<option value="Navy" >Navy</option>
+						<option value="Purple" >Purple</option>
+						<option value="Gray" >Gray</option>
+						<option value="Yellow" >Yellow</option>
+						<option value="Lime" >Lime</option>
+						<option value="Aqua" >Aqua</option>
+						<option value="Fuchsia" >Fuchsia</option>
+						<option value="Silver" >Silver</option>
+						<option value="Red" >Red</option>
+						<option value="Blue" >Blue</option>
+						<option value="Teal" >Teal</option>
+						</select> </td>
+				</tr>
+				<tr>
+					<td bgcolor="#DDDDDD" align="center" width="41">선굵기</td>
+					<td bgcolor="#FFFFFF" width="39" > <select name="cellspacing" size="1">
+						<option value="0">0</option>
+						<option value="1" selected>1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						</select> </td>
+					<td bgcolor="#DDDDDD" width="38" align="center">들이기</td>
+					<td bgcolor="#FFFFFF" width="38"> <select name="cellpadding" size="1">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3" selected>3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						</select> </td>
+					<td bgcolor="#DDDDDD" width="25">셀색</td>
+					<td bgcolor="#FFFFFF" width="81"> <select name="tdcolor" size="1">
+						<option value="White" selected>Default</option>
+						<option value="Black">Black</option>
+						<option value="White">White</option>
+						<option value="Green">Green</option>
+						<option value="Maroon">Maroon</option>
+						<option value="Olive">Olive</option>
+						<option value="Navy">Navy</option>
+						<option value="Purple">Purple</option>
+						<option value="Gray">Gray</option>
+						<option value="Yellow">Yellow</option>
+						<option value="Lime">Lime</option>
+						<option value="Aqua">Aqua</option>
+						<option value="Fuchsia">Fuchsia</option>
+						<option value="Silver">Silver</option>
+						<option value="Red">Red</option>
+						<option value="Blue">Blue</option>
+						<option value="Teal">Teal</option>
+						</select> </td>
+				</tr>
+			</table>
+			<table cellpadding="0" cellspacing="0" border="0" height="5">
+				<tr>
+					<td></td>
+				</tr>
+			</table>
+			<input type="button" name="B2" value=" 확 인 " style="font-size:9pt;" onClick="ok_click()"> &nbsp; &nbsp; <input type="button" name="B3" value=" 취 소 " style="font-size:9pt;"  onClick="javascript: window.close()"></form>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

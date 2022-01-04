@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>색상구성</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<style type="TEXT/CSS">
+form { display : inline; }
+</style>
+<script language="JavaScript">
+var color = new Array(
+"#FF8080","#FFFF80","#80FF80","#00FF80","#80FFFF","#0080FF","#FF80C0","#FF80FF",
+"#FF0000","#FFFF00","#80FF00","#00FF40","#00FFFF","#0080C0","#8080C0","#FF00FF",
+"#804040","#FF8040","#00FF00","#008080","#004080","#8080FF","#800040","#FF0080",
+"#800000","#FF8000","#008000","#008040","#0000FF","#0000A0","#800080","#8000FF",
+"#400000","#804000","#004000","#004040","#000080","#000040","#400040","#400080",
+"#000000","#808000","#808040","#808080","#408080","#C0C0C0","#400040","#FFFFFF");
+
+function display(triplet)
+{
+	document.form.SelColor.value= triplet;
+}
+</script>
+<script LANGUAGE="JavaScript" FOR="OK" EVENT="onclick">
+<!--
+ window.returnValue = document.form.SelColor.value
+ window.close();
+// -->
+</script>
+</head>
+<body bgcolor="#FFFFFF" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<form name="form" >
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<table border="1" cellspacing="0" cellpadding="0" bgcolor="#C0C0C0">
+			<script>
+			doc = '';
+			for (var i = 0; i < 48; i++) 
+			{
+				if( (i%8)==0) doc += '<TR>';
+				doc +='<TD BGCOLOR="' + color[i] +'">'
+				doc +='<A HREF="#">'
+				doc +='<IMG SRC="./images/blank.gif" BORDER=0 HEIGHT=16 WIDTH=26 onClick="javascript:display(\'' + color[i] + '\')"></a></td>'
+				if( (i%8)==7) doc += '</TR>';
+			}
+			doc += '</tr>';
+			document.write(doc);
+			</script>
+			</table>
+			<table height="26" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="202" height="26"> &nbsp;<input name="SelColor" type="text" size="7" style="border:1 solid #808080" readonly> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="button" name="OK"  value="선 택"   style="font-size:9pt">&nbsp; <input type=button  ONCLICK="window.close();" value="취 소" style="font-size:9pt" > </td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

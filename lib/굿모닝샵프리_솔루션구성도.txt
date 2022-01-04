@@ -1,0 +1,172 @@
+----------------------------------------------------------------------------
+------------------------솔루션 구성도---------------------------------------
+----------------------------------------------------------------------------
+
+>>>>>폴더
+admin - 관리자
+email - 이메일 관련파일
+eml - 웹메일 사용시 메일저장 (폴더에 nobody 쓰기 권한이 있어야합니다 707) 
+image - 이미지 폴더 
+images - 이미지 폴더(웹에디터 관련) 
+inicis - 이니시스 전자지불 관련 
+lib - LIBRARY 파일
+script - 자바스크립트 파일
+sms - SMS 관련 
+upload - 업로드 폴더 (하부폴더까지 포함하여 nobody 쓰기 권한이 있어야합니다 707) 
+
+>>>>>사용자 주요 파일
+-사용자화면 모든파일시작시 불러옴  : html_head.php
+-페이지 상단  : top.php (HEAD 관련태그 및 BODY 태그시작) 
+-페이지 좌측  : left_menu.php
+-페이지 하단  : copy.php
+-메인  : index.php 
+-로그인 : login.php 
+-메인,카테고리등에서 상품정보(바둑판,게시판,혼합배열시)  : goods_detail_inc.php 
+-카테고리 상품목록, 상품목록, 검색결과페이지 테이블디자인  : goods_show_inc.php 
+-상품상세정보 : goods_detail.php 
+-상품목록 : goods_list.php
+-장바구니   : cart.php
+-주문작성   : order_sheet.php
+-주문결제   : order_table.php
+-주문완료모듈  : order_table_ok.php
+-신용카드,적립금 사용시 주문정보 업데이트 : card_update.php 
+-주문완료페이지  : order_ok.php 
+-신상품전  : new_main.php
+-커뮤니티  : community.php 
+-회원가입 : member로 시작하는 파일들
+-마이페이지 : mypage로 시작하는 파일들
+-상품검색 : search_result.php
+-상품사진 확대보기 : zoom2.php 
+
+
+>>>>>사용자 기타파일 
+-1:1문의 관련 : ask_로 시작하는 파일들 
+-게시판 관련 : board로 시작하는 파일들 
+-게시판 꼬릿말 관련 : comment로 시작하는 파일들 
+-게시판 편집기 : editor로 시작하는 파일들 
+-상품질문 : goods_ask로 시작하는 파일들
+-설문조사 : poll로 시작하는 파일들 
+-공지사항 : notice로 시작하는 파일들
+-공사중페이지 : under.php 
+-사용자 정의페이지 : new_page.php 
+-사용자 추가작업용 임시페이지  : empty_page.php
+-> 본페이지를 수정, 다른이름으로 저장하여 사용가능. 
+
+※ 기타페이지들은 해당페이지에서 직접 '주소창'을 보면 알수있습니다.
+예) 상품목록페이지 -> 상품카테고리를 클릭해들어가면 goods_list.php  
+
+>>>>>email 폴더 
+-결제확인메일 : b2b_credit.php 
+-주문메일 : goods_order.php (관리자) 
+-주문취소메일 : goods_order_cancel.php
+-주문배송메일 : goods_trans.php
+-쇼핑몰 하단의 메일링크를 통한 메일폼 : mail.php
+-회원가입 축하메일 : member_join_success.php
+-비밀번호 변경 통보메일 : pwd_edit.php 
+
+>>>>>데이터베이스
+   GM_Counter 접속통계
+   GM_PG_dacom 데이콤 결제 관련
+   admin   관리자 정보
+   banner   베너정보  
+   bbs_data  게시판글
+   bbs_list  게시판목록
+   cart      장바구니
+   category  카테고리
+   category_banner  카테고리별 중앙베너 
+   color     색상코드
+   comment   게시판꼬릿말
+   compare 상품비교목록 
+   design    디자인정보
+   design_goods 상품목록디자인정보
+   goods    상품
+   goods_comment 상품평
+   good_board 상품질문 게시물
+   good_board_comment 상품질문 답변게시물
+   interest     관심품목
+   ipblock IP차단목록 
+   mailing_list 메일발송현황
+   member    회원
+   member_withdraw 탈퇴회원 목록 
+   notice    공지사항,이벤트
+   page      사용자정의페이지
+   patch     소스패치내역 
+   patchDetail 소스패치내역 상세정보 
+   point_table 적립금사용내역
+   poll     설문조사
+   position 특정위치 상품현황 (메인,카테고리)
+   postzip  우편번호  
+   smsinfo   sms서비스 정보 
+   sub_design 서브디자인정보
+   today_view 오늘본상품 목록 
+   trade     주문정보
+   trade_goods 주문상품정보
+   trade_temp   임시주문정보
+   trans_add  도서산간지역 정보
+   up_file    이미지업로드 정보
+   userSrcEdit 고객의 소스수정 내용이력 
+   webmail_ 관리자메일 관련 테이블
+
+>>>>>member (회원)테이블 주요필드
+name 이름
+userid 아이디
+pwd 비밀번호
+email 이메일
+ssh 주민등록번호
+zip 우편번호
+address1 주소
+address2 상세주소
+city 도시 (서울,대구..)
+tel 전화번호
+hand 핸드폰번호
+bMail 메일수신여부 1,0
+point 적립금
+writeday 가입일
+nearDay 최근접속일
+accNum 방문수
+buyNum 구매수
+buyMoney 구매금액
+ceo_zip 사업자 우편번호 
+ceo_address1 사업자 주소
+ceo_address2 사업자 상세주소
+birth 생년월일
+birth2 결혼기념일 
+part M:회원,D:딜러회원 
+(trans_company필드부터 designType필드까지는 입점회원 관련 필드입니다.) 
+
+>>>>>goods (상품)테이블 주요필드
+code 상품코드
+name 상품명
+price 판매가
+oldPrice 시중가
+point 적립금
+company 회사명
+origin 원산지
+limitCnt 재고량
+partName1~3 옵션상세내용
+strPart1~3 옵션명
+img1 작은이미지
+img2 중간이미지
+img3 확대이미지
+img4~8 추가확대이미지
+goodok 상품승인여부 Y,N
+goodtype 상품형태 norm일반,plan기획,sale추천,gong공구 
+editday 상품정보수정일
+img_onetoall 확대이미지 1개 (img3)를 등록하여 img1,2 를 자동생성하는 기능사용중인지
+detailimg1~4 상품상세정보에 추가되는 이미지4개
+sale 시중가를 사용시 판매가 대비 할인률
+margin 판매가에서 공급가를 차감한 마진액
+supplyprice 공급가
+meta_str 상품 타이틀제목
+size 상품크기
+lastprice 바로 이전의 판매가
+model 모델명
+infoimg 상품정보 이미지로 사용시 해당이미지
+chango 창고지
+bWmark 워터마크 적용여부
+quality 상품 품질 (화면노출안됨)
+minbuyCnt 상품 최소구매수량
+maxbuyCnt 상품 최대구매수량
+gongu~ 공동구매 관련정보
+trans_content 상품 배송정보
+transM 상품 개별배송비
